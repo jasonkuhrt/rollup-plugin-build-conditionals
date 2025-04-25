@@ -1,0 +1,76 @@
+{
+  "name": "rollup-plugin-build-conditionals",
+  "version": "0.0.0-dripip",
+  "description": "todo",
+  "type": "module",
+  "author": {
+    "name": "Jason Kuhrt",
+    "url": "https://kuhrt.me"
+  },
+  "exports": {
+    ".": "./build/entrypoints/index.js"
+  },
+  "files": [
+    "src",
+    "build",
+    "README.md"
+  ],
+  "scripts": {
+    "bootstrap": "tsx scripts/bootstrap.ts",
+    "dev": "pnpm build:watch",
+    "build:watch:emit": "pnpm build --noCheck --watch",
+    "build:watch": "pnpm build --watch",
+    "build:emit": "pnpm build --noEmit",
+    "build": "tsc --project tsconfig.build.json",
+    "build:clean": "tsc --build --clean && rm -rf build",
+    "prebuild": "pnpm build:clean",
+    "test": "pnpm test:unit",
+    "test:unit": "vitest --root src",
+    "prepack": "pnpm build",
+    "fix": "pnpm fix:format && pnpm fix:lint",
+    "fix:format": "dprint fmt",
+    "fix:lint": "eslint . --fix",
+    "check": "pnpm check:format && pnpm check:lint && pnpm check:types && pnpm check:package",
+    "check:format": "dprint check",
+    "check:lint": "eslint . --max-warnings 0",
+    "check:types": "tsc --noEmit",
+    "check:package": "publint run --strict"
+  },
+  "keywords": [
+    "rollup-plugin",
+    "build-conditionals",
+    "build-conditionals-plugin",
+    "build-conditionals-plugin-rollup"
+  ],
+  "license": "MIT",
+  "packageManager": "pnpm@10.8.0",
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@tsconfig/node22": "^22.0.1",
+    "@tsconfig/recommended": "1.0.8",
+    "@tsconfig/strictest": "2.0.5",
+    "@types/estree": "^1.0.7",
+    "@types/node": "22.15.2",
+    "@typescript-eslint/eslint-plugin": "8.31.0",
+    "@typescript-eslint/parser": "8.31.0",
+    "dripip": "0.10.0",
+    "eslint": "9.25.1",
+    "eslint-plugin-only-warn": "1.1.0",
+    "eslint-plugin-tsdoc": "0.4.0",
+    "publint": "^0.3.12",
+    "rollup": "^4.40.0",
+    "tsx": "4.19.3",
+    "typescript": "5.8.3",
+    "typescript-eslint": "^8.31.0",
+    "vitest": "3.1.2"
+  },
+  "peerDependencies": {
+    "rollup": "^4.40.0"
+  },
+  "dependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "astring": "^1.9.0",
+    "estree-walker": "^3.0.3"
+  }
+}
