@@ -43,7 +43,7 @@
     "build-conditionals-plugin-rollup"
   ],
   "license": "MIT",
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.18.2",
   "devDependencies": {
     "@eslint/js": "^9.25.1",
     "@stylistic/eslint-plugin": "^4.2.0",
